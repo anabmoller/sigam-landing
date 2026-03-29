@@ -1483,7 +1483,7 @@ function updateDawn() {
   // Progress: 0 when hero top is at viewport top, 1 when hero bottom leaves viewport
   const scrolled = -rect.top;
   const total = heroH - viewH;
-  const p = Math.max(0, Math.min(1, scrolled / total));
+  const p = Math.sqrt(Math.max(0, Math.min(1, scrolled / total))); // √ curve: fast out of dark, lingers in golden hour
   document.documentElement.style.setProperty('--dp', p.toFixed(3));
 }
 
