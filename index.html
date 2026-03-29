@@ -1292,13 +1292,8 @@ footer {
   <div class="am-bg"></div>
   <div class="am-stars-bg"></div>
   <div class="am-content">
-    <div style="display:flex;align-items:center;gap:20px;margin-bottom:32px;">
+    <div style="margin-bottom:32px;">
       <div class="am-label" style="margin-bottom:0;">La filosofía</div>
-      <div style="display:flex;align-items:center;gap:8px;font-family:'Source Code Pro',monospace;font-size: 14px;letter-spacing:0.14em;color:rgba(245,179,1,0.4);">
-        <span id="am-clock"><span class="sunrise-time">--:--</span> AM</span>
-        <span style="opacity:0.4;">·</span>
-        <span>Paraguay</span>
-      </div>
     </div>
     <h2 class="am-quote reveal">
       El sol nace todos los días.<br>
@@ -1306,11 +1301,9 @@ footer {
       de hacerlo <em>mejor.</em>
     </h2>
     <p class="reveal reveal-delay-1" style="font-size:16px;line-height:1.85;color:rgba(255, 255, 255, 0.7);max-width:580px;">
-      AM es mañana. El instante en que el dorado rompe el azul profundo de la noche del campo.
-      El SIGAM existe en ese momento — cuando el productor abre el panel
-      antes de la apartada y los datos del día anterior ya están organizados.
-      Disciplina y constancia. No el esfuerzo heroico de un día.
-      La apertura silenciosa de cada AM.
+      AM es AManecer. Cuando el dorado rompe el azul profundo de la noche del campo.
+      El SIGAM existe en ese momento — al arrancar de la jornada.
+      Disciplina y constancia a cada AM.
     </p>
     <div class="am-grid">
       <div class="am-item reveal reveal-delay-1">
@@ -1474,18 +1467,6 @@ function updateDawn() {
 window.addEventListener('scroll', updateDawn, { passive: true });
 updateDawn();
 
-// Live clock in AM section
-function updateAMClock() {
-  const el = document.getElementById('am-clock');
-  if (!el) return;
-  const now = new Date();
-  const h = now.getHours();
-  const m = String(now.getMinutes()).padStart(2,'0');
-  const ampm = h < 12 ? 'AM' : 'PM';
-  el.textContent = `${h % 12 || 12}:${m} ${ampm}`;
-}
-setInterval(updateAMClock, 1000);
-updateAMClock();
 
 // Scroll reveals
 const reveals = document.querySelectorAll('.reveal');
