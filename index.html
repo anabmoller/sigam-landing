@@ -9,6 +9,7 @@
 <meta property="og:description" content="Gestión que nace con el AM. Para quien ya estaba de pie cuando salió el sol.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#020810">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A1628'/%3E%3Crect x='2' y='2' width='60' height='60' rx='12' fill='none' stroke='%23F5B301' stroke-opacity='.55' stroke-width='2'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Inter,system-ui,sans-serif' font-size='22' font-weight='800' fill='%23F5B301'%3EAM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -1483,7 +1484,7 @@ function updateDawn() {
   // Progress: 0 when hero top is at viewport top, 1 when hero bottom leaves viewport
   const scrolled = -rect.top;
   const total = heroH - viewH;
-  const p = Math.sqrt(Math.max(0, Math.min(1, scrolled / total))); // √ curve: fast out of dark, lingers in golden hour
+  const p = Math.pow(Math.max(0, Math.min(1, scrolled / total)), 0.35); // aggressive curve: fast out of dark, long golden hour // √ curve: fast out of dark, lingers in golden hour
   document.documentElement.style.setProperty('--dp', p.toFixed(3));
 }
 
